@@ -7,10 +7,15 @@ from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.boxlayout import BoxLayout
 
+from kivy.config import Config
+Config.set('graphics', 'resizable',0)
+Config.set('graphics', 'wigh',400)
+Config.set('graphics', 'height',500)
+
 class CalculatorApp(App):
 	def build(self):
-		bl = BoxLayout(orientation='vertical')
-		gl = GridLayout(cols = 4)
+		bl = BoxLayout(orientation='vertical', padding = 25)
+		gl = GridLayout(cols = 4, spacing = 3)
 
 		bl.add_widget(Label(text = '0'))
 		
