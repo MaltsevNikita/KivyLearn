@@ -27,6 +27,10 @@ class CalculatorApp(App):
 		self.formula += str(instance.text)
 		self.update_label()
 
+	def calc_result(self,instance):
+		self.lbl.text = str(eval(self.lbl.text))
+		self.formula = "0"
+
 	def build(self):
 		self.formula = ""
 		bl = BoxLayout(orientation='vertical', padding = 25)
@@ -55,7 +59,7 @@ class CalculatorApp(App):
 		gl.add_widget( Widget())
 		gl.add_widget( Button(text="0",on_press = self.add_number))
 		gl.add_widget( Button(text=".",on_press = self.add_number))
-		gl.add_widget( Button(text="=",on_press = self.add_operation) )
+		gl.add_widget( Button(text="=",on_press = self.calc_result) )
 
 		bl.add_widget(gl)
 		return bl
